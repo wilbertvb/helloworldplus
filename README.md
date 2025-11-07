@@ -42,3 +42,5 @@ This project demonstrates real-world Git merge scenarios:
 - Non-fast-forward merges (explicit merge commits)
 
 See `git_merge_scenario.md` for comprehensive examples.
+
+@Autor: Wilbert Valverde Barrantes
