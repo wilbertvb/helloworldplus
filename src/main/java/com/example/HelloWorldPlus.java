@@ -39,7 +39,10 @@ public class HelloWorldPlus {
         System.out.println("Dummy Method 3: " + app.reverseString("Java21"));
         log("Application ended");
     }
-
+    
+    /**
+     * New log method: gives log feature
+     */
     private static void log(String message) {
         System.out.println("[" + LocalDateTime.now().format(TIME_FORMATTER) + "] " + message);
     }
@@ -63,7 +66,7 @@ public class HelloWorldPlus {
      */
     public int calculateSum(int a, int b) {
         if (a < -1000000 || a > 1000000 || b < -1000000 || b > 1000000) {
-            throw new IllegalArgumentException("Numbers must be within valid range");
+            throw new IllegalArgumentException("Numbers must be within valid range!");
         }
         return a + b;
     }
