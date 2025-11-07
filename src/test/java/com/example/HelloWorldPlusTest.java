@@ -53,7 +53,7 @@ class HelloWorldPlusTest {
     }
 
     @Test
-    @DisplayName("Verify logging does not affect functionality")
+    @DisplayName("Verify new feature logging does not affect functionality")
     void testLoggingIntegration() {
         String result = app.getGreeting();
         assertNotNull(result);
