@@ -13,7 +13,7 @@ class HelloWorldPlusTest {
     @DisplayName("Test getGreeting method")
     void testGetGreeting() {
         String result = app.getGreeting();
-        assertEquals("Welcome to HelloWorldPlus - Production Ready!", result);
+        assertEquals("Welcome to HelloWorldPlus!", result);
         assertNotNull(result);
     }
 
