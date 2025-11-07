@@ -39,14 +39,14 @@ class HelloWorldPlusTest {
     }
 
     @Test
-    @DisplayName("Test reverseString with empty string")
+    @DisplayName("Test reverseString with empty string!")
     void testReverseStringEmpty() {
         String result = app.reverseString("");
         assertEquals("", result);
     }
 
     @Test
-    @DisplayName("Test reverseString with null safety")
+    @DisplayName("Test reverseString with null safety!")
     void testReverseStringNullSafety() {
         String result = app.reverseString(null);
         assertNull(result);
