@@ -39,7 +39,10 @@ public class HelloWorldPlus {
         System.out.println("Dummy Method 3: " + app.reverseString("Java21"));
         log("Application ended");
     }
-
+    
+    /**
+     * New log method: gives log feature
+     */
     private static void log(String message) {
         System.out.println("[" + LocalDateTime.now().format(TIME_FORMATTER) + "] " + message);
     }
