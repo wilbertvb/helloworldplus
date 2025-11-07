@@ -72,7 +72,7 @@ public class HelloWorldPlus {
     }
 
     /**
-     * Dummy method 3: Reverses a string with null safety
+     * Reverse Method: Reverses a string with null safety
      * 
      * @param input The string input to be reverse.
      * 
