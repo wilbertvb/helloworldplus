@@ -26,6 +26,14 @@ public class HelloWorldPlus {
   private static final Logger LOGGER = Logger.getLogger(HelloWorldPlus.class.getName());
 
   /**
+   * Constructs a new HelloWorldPlus object.
+   * The object is initialized to a default state.
+   */
+  public HelloWorldPlus() {
+    // Constructor body (can be empty or perform initialization)
+  }
+
+  /**
    * The main method is the entry point of this application. It prints a
    * greeting message to the console.
    *
