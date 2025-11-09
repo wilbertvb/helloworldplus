@@ -2,86 +2,93 @@ package com.example;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- * HelloWorldPlus - A simple Java 21 application demonstrating Maven build with JUnit 5
- * It represents a Hello world plus class.
- * <p>
- * This is test class for git merge study.
- * </p>
- *
+ * HelloWorldPlus is a simple Java 21 application that demonstrates a Maven
+ * build and a JUnit 5 test.
+ * 
+ * <p>This class is used as a minimal example for a git merge study.</p>
+ * 
  * @author Wilbert Valverde Barrantes
  * @version 1.0
  * @since 2025-11-06
  */
 public class HelloWorldPlus {
-    
-    /**
-     * A simple string field for demonstration purposes.
-     * This field will be initialized to {@code null} by the default constructor.
-     */
 
-    private static final DateTimeFormatter TIME_FORMATTER = 
-        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+  /**
+   * Formatter used to render log timestamps.
+   */
+  private static final DateTimeFormatter TIME_FORMATTER = 
+      DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    /**
-     * The main method is the entry point of this application.
-     * It prints a greeting message to the console.
-     *
-     * @param args Command line arguments (not used in this example).
-     */
-    public static void main(String[] args) {
-        log("Application started");
-        System.out.println("Hello World Plus!");
-        HelloWorldPlus app = new HelloWorldPlus();
-        System.out.println("Dummy Method 1: " + app.getGreeting());
-        System.out.println("Dummy Method 2: " + app.calculateSum(5, 10));
-        System.out.println("Dummy Method 3: " + app.reverseString("Java21"));
-        log("Application ended");
-    }
-    
-    /**
-     * New log method: gives log feature
-     */
-    private static void log(String message) {
-        System.out.println("[" + LocalDateTime.now().format(TIME_FORMATTER) + "] " + message);
-    }
+  private static final Logger LOGGER = Logger.getLogger(HelloWorldPlus.class.getName());
 
-    /**
-     * Dummy method 1: Returns a greeting message
-     * 
-     * @return the greeting message.
-     */
-    public String getGreeting() {
-        return "Welcome to HelloWorldPlus!";
-    }
+  /**
+   * The main method is the entry point of this application. It prints a
+   * greeting message to the console.
+   *
+   * @param args Command line arguments (not used in this example).
+   */
+  public static void main(final String[] args) {
+    log("Application started");
+    LOGGER.log(Level.INFO, () -> "Hello World Plus!");
+    final HelloWorldPlus app = new HelloWorldPlus();
+    LOGGER.log(Level.INFO, () -> "Dummy Method 1: " + app.getGreeting());
+    LOGGER.log(Level.INFO, () -> "Dummy Method 2: " + app.calculateSum(5, 10));
+    LOGGER.log(Level.INFO, () -> "Dummy Method 3: " + app.reverseString("Java21"));
+    log("Application ended");
+  }
 
-    /**
-     * Dummy method 2: Calculates the sum of two integers
-     * 
-     * @param a First number to be added.
-     * @param b Second number to be added.
-     * 
-     * @return the sum of the two numbers.
-     */
-    public int calculateSum(int a, int b) {
-        if (a < -1000000 || a > 1000000 || b < -1000000 || b > 1000000) {
-            throw new IllegalArgumentException("Numbers must be within valid range!");
-        }
-        return a + b;
-    }
+  /**
+   * Prints a simple timestamped log message to standard output.
+   *
+   * @param message the message to log
+   */
+  private static void log(final String message) {
+    LOGGER.log(
+        Level.INFO,
+        () -> "[" + LocalDateTime.now().format(TIME_FORMATTER) + "] " + message);
+  }
 
-    /**
-     * Reverse Method: Reverses a string with null safety
-     * 
-     * @param input The string input to be reverse.
-     * 
-     * @return the reverse string.
-     */
-    public String reverseString(String input) {
-        if (input == null || input.isEmpty()) {
-            return input;
-        }
-        return new StringBuilder(input).reverse().toString();
+  /**
+   * Returns a greeting message.
+   *
+   * @return the greeting message
+   */
+  public String getGreeting() {
+    return "Welcome to HelloWorldPlus!";
+  }
+
+  /**
+   * Calculates the sum of two integers.
+   *
+   * @param a first number to be added
+   * @param b second number to be added
+   * @return the sum of the two numbers
+   * @throws IllegalArgumentException if either argument is outside the allowed
+   *                                  range of -1_000_000..1_000_000
+   */
+  public int calculateSum(final int a, final int b) {
+    if (a < -1_000_000 || a > 1_000_000 || b < -1_000_000 || b > 1_000_000) {
+      throw new IllegalArgumentException("Numbers must be within valid range");
     }
+    return a + b;
+  }
+
+  /**
+   * Reverses a string, preserving {@code null} and empty inputs.
+   *
+   * @param input the string input to be reversed
+   * @return the reversed string, or the original input if it is {@code null}
+   *         or empty
+   */
+  public String reverseString(final String input) {
+    if (input == null || input.isEmpty()) {
+      return input;
+    }
+    return new StringBuilder(input).reverse().toString();
+  }
+
 }

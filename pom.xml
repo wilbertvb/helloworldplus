@@ -207,9 +207,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <configLocation>google_checks.xml</configLocation> <!-- Or your custom Checkstyle
-                    configuration -->
-                    <encoding>UTF-8</encoding>
+                    <configLocation>google_checks.xml</configLocation> 
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
                     <linkXRef>false</linkXRef>
